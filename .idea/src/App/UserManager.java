@@ -1,7 +1,7 @@
 package App;
+
 import java.io.File;
 import java.util.Scanner;
-import App.common.*;
 import App.*;
 
 import javax.swing.plaf.basic.BasicInternalFrameTitlePane;

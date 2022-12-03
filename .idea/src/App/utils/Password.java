@@ -2,6 +2,9 @@ package App.utils;
 
 import java.io.IOException;
 
+import netscape.javascript.JSObject;
+import org.mindrot.jbcrypt.BCrypt;
+
 public class Password {
     private Password() throws IOException{}
 
@@ -17,5 +20,18 @@ public class Password {
             return false;
         else return true;
     }
+
+    public static String encryptPassword(String password){
+        return BCrypt.hashpw(password, BCrypt.gensalt());
+    }
+
+    public static boolean checkPassWithHash(String password, String hash){
+        return BCrypt.checkpw(password, hash);
+    }
+
+    //TODO check old password in DB if it is correct or not
+    public static boolean checkIfOldPassCorrect(String password){return JSObject.class.contains(password)//try to reach DB here
+    }
+
 
 }
