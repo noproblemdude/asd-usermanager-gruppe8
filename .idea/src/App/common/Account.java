@@ -1,17 +1,12 @@
-package App;
+package App.common;
+
+import com.sun.tools.javac.Main;
 
 public class Account {
     private String Vorname;
     private String Nachname;
     private String Benutzername;
-    private Integer Passwort;
-
-    public void main(String Vorname,String Nachname,String Benutzername,Integer Passwort){
-        this.Vorname=Vorname;
-        this.Nachname=Nachname;
-        this.Benutzername=Benutzername;
-        this.Passwort=Passwort;
-    }
+    private String Passwort;
 
     public String getVorname(){
         return Vorname;
@@ -25,7 +20,7 @@ public class Account {
         return Benutzername;
     }
 
-    public Integer getPasswort(){
+    public String getPasswort(){
         return Passwort;
     }
 
@@ -41,7 +36,7 @@ public class Account {
         Benutzername = benutzername;
     }
 
-    public void setPasswort(Integer passwort) {
+    public void setPasswort(String passwort) {
         Passwort = passwort;
     }
 
