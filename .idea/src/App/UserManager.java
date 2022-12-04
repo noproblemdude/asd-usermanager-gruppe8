@@ -18,41 +18,48 @@ public class UserManager {
 
         while (exit == false){
             System.out.println("Willkommen bei RegistrationManager!");
-            System.out.println("Wählen sie eine der folgenden Optionen aus: Registrieren, Einloggen,Schliessen");
+            System.out.println("Wählen sie eine der folgenden Optionen aus: 1:Registrieren,2:Einloggen,3:Schliessen");
             Choice = RegistrationManager.TerminalReader();
 
-            switch(Choice) {
-                case "Registrieren":
+
+                if(Choice=="1") {
                     RegistrationManager.register();
-                case "Einloggen":
-                    if(UserAccount==null){
+                }
+                if(Choice=="2") {
+                    UserAccount = LoginService.requestUserCredentials();
+
+                    if (UserAccount == null) {
                         loggedin = false;
-                    }
-                    else {
+                    } else {
                         loggedin = true;
                     }
-
-                case "Schliessen":
+                }
+                if(Choice=="3") {
                     System.out.println("Auf wiedersehen");
                     exit = true;
-                default:
+                }
+
+                else{
                     System.out.println("Dies ist keine gültige Option, bitte nochmal versuchen");
-            }
+                }
 
             while(loggedin){
                 System.out.println("Sie wurden eingeloggt");
-                System.out.println("Wählen sie eine der folgenden Optionen aus: Passwort aendern,Konto löschen,Ausloggen");
+                System.out.println("Wählen sie eine der folgenden Optionen aus: 1:Passwort aendern,2:Konto löschen,3:Ausloggen");
+                Choice = RegistrationManager.TerminalReader();
 
-                switch(Choice) {
-                    case "Passwort aendern":
-
-                    case "Konto löschen":
+               if(Choice=="1") {
+                       PasswordChange.changePassword(UserAccount);
+               }
+                if(Choice=="2") {
                         RegistrationManager.DeleteAccount(UserAccount);
                         loggedin = false;
-                    case "Ausloggen":
+                }
+                if(Choice=="3") {
                         loggedin = false;
                         System.out.println("Sie wurden ausgeloggt");
-                    default:
+                }
+                else{
                         System.out.println("Dies ist keine gültige Option, bitte nochmal versuchen");
                 }
 

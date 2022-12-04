@@ -1,8 +1,5 @@
 package App;
 
-import App.JsonLoader;
-import App.RegistrationManager;
-
 public class PasswordChange {
     private String initiallyEnteredPass;
     private String secondlyEnteredPass;
@@ -27,7 +24,7 @@ public class PasswordChange {
         return secondlyEnteredPass.equals(initiallyEnteredPass);
     }
 
-    public void static changePassword(Account account){
+    public static void changePassword(Account account){
         System.out.println("Please enter your old password");
         String oldpasswordHashed = RegistrationManager.PasswordHasher(RegistrationManager.TerminalReader());
         if (oldpasswordHashed.equals(account.getPasswort())){
