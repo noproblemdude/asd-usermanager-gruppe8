@@ -22,12 +22,13 @@ public class LoginService {
     public static Account requestUserCredentials() {
         short failedLoginAttempts = 0;
         boolean userLocked = false;
+        boolean correctpassword = false;
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Bitte gib einen Benutzernamen ein:");
         String userInputUsername = keyboard.next();
         System.out.println("Bitte gib einen Passwort ein:");
         String userInputPassword = keyboard.next();
-        while ((failedLoginAttempts <= 3) && userLocked == false) {
+        while ((failedLoginAttempts <= 3) && userLocked == false && correctpassword == false) {
            if(areLoginAndPasswordCorrect(userInputUsername, userInputPassword) == false) {
                failedLoginAttempts++;
                System.out.println("Benutzername oder Passwort nicht korrekt.");
@@ -37,6 +38,7 @@ public class LoginService {
                }
            } else {
                System.out.println("Du bist erfolgreich eingeloggt.");
+               correctpassword = true;
            }
         }
         Account account = new Account();
