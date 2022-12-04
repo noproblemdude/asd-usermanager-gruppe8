@@ -1,6 +1,3 @@
-# asd-usermanager-gruppe8
-Projekt UserManager für die Veranstaltung ASD
-
 Dies ist eine Anleitung zum Benutzen von UserManager.
 
 Dieses Projekt kann entweder gestertet werden indem man die klasse UserManager ausführt.
@@ -25,4 +22,3 @@ Der User muss zuerst das Passwort von seinem Account nochmal eingeben, anschlies
 
 Ausloggen:
 Der User wird ins Anmeldedialog zurückgebracht.
-
