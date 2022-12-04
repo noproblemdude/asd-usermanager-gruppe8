@@ -27,16 +27,16 @@ public class PasswordChange {
         return secondlyEnteredPass.equals(initiallyEnteredPass);
     }
 
-    public void changePassword(Account account){
+    public void static changePassword(Account account){
         System.out.println("Please enter your old password");
         String oldpasswordHashed = RegistrationManager.PasswordHasher(RegistrationManager.TerminalReader());
         if (oldpasswordHashed.equals(account.getPasswort())){
             System.out.println("Please enter your new password");
-            initiallyEnteredPass = RegistrationManager.TerminalReader();
+            String pass1 = RegistrationManager.TerminalReader();
             System.out.println("Please re-enter your new password");
-            secondlyEnteredPass = RegistrationManager.TerminalReader();
-            if (confirmEnteredPasswordsSame(initiallyEnteredPass,secondlyEnteredPass)){
-                account.setPasswort(RegistrationManager.PasswordHasher(secondlyEnteredPass));
+            String pass2 = RegistrationManager.TerminalReader();
+            if (confirmEnteredPasswordsSame(pass1,pass2)){
+                account.setPasswort(RegistrationManager.PasswordHasher(pass2));
                 JsonLoader.SaveJson(account);
                 System.out.println("Password has been changed succesfully");
         }}
