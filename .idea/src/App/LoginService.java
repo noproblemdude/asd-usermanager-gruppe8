@@ -9,14 +9,15 @@ import App.*;
 public class LoginService {
 
     public static boolean areLoginAndPasswordCorrect(String username, String password) {
-        Account account = new Account();
-        account = JsonLoader.ReadFromJson(username);
-
-        if( (account != null) && (account.getPasswort().equals(RegistrationManager.PasswordHasher(password))) ) {
-            return true;
-        } else {
-            return false;
+        File f = new File(".idea/src/App/Database/"+username+".json");
+        if (f.exists() && !f.isDirectory()) {
+            Account account = new Account();
+            account = JsonLoader.ReadFromJson(username);
+            if (account.getPasswort().equals(RegistrationManager.PasswordHasher(password))) {
+                return true;
+            }
         }
+        return false;
     }
 
     public static Account requestUserCredentials() {
@@ -28,22 +29,16 @@ public class LoginService {
         String userInputUsername = keyboard.next();
         System.out.println("Bitte gib einen Passwort ein:");
         String userInputPassword = keyboard.next();
-        while ((failedLoginAttempts <= 3) && userLocked == false && correctpassword == false) {
-           if(areLoginAndPasswordCorrect(userInputUsername, userInputPassword) == false) {
-               failedLoginAttempts++;
-               System.out.println("Benutzername oder Passwort nicht korrekt.");
-               if (failedLoginAttempts == 3) {
-                    userLocked = true;
-                    // TODO: algorithm for locking the user
-               }
-           } else {
-               System.out.println("Du bist erfolgreich eingeloggt.");
-               correctpassword = true;
-           }
+        if (areLoginAndPasswordCorrect(userInputUsername, userInputPassword)) {
+            System.out.println("Du bist erfolgreich eingeloggt.");
+            correctpassword = true;
+            Account account = new Account();
+            account = JsonLoader.ReadFromJson(userInputUsername);
+            return account;
+        } else {
+            System.out.println("Benutzername oder Passwort ist falsch.");
+            return null;
         }
-        Account account = new Account();
-        account = JsonLoader.ReadFromJson(userInputUsername);
-        return account;
     }
 /*
     static String inputPath = ".idea/src/App/Database/";
