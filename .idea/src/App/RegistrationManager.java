@@ -6,7 +6,6 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import App.common.*;
 import java.security.MessageDigest;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -58,6 +57,15 @@ public class RegistrationManager {
 
         }
 
+    }
+
+    public static void DeleteAccount(Account Acc){
+        File myObj = new File(".idea/src/App/Database/"+Acc.getBenutzername());
+        if (myObj.delete()) {
+            System.out.println("Account was deleted");
+        } else {
+            System.out.println("Failed to delete the Account.");
+        }
     }
 
     public static String PasswordHasher(String Password){

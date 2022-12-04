@@ -3,7 +3,6 @@ package App;
 import java.io.File;
 import java.util.Scanner;
 import App.*;
-import App.common.*;
 
 
 import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
@@ -51,10 +50,28 @@ public class UserManager {
     }
 
     public static void main(String args[]){
+
         boolean exit = false;
+        String Choice = null;
+        Account UserAccount = null;
+
         while (exit == false){
+            System.out.println("Willkommen bei RegistrationManager!");
+            System.out.println("Wähöen Sie eine Option aus: Registrieren, Einloggen,Schliessen");
+            Choice = RegistrationManager.TerminalReader();
+
+            switch(Choice) {
+                case "Registrieren":
+                    RegistrationManager.register();
+                case "Einloggen":
+
+                case "Schliessen":
+                    System.out.println("Auf wiedersehen");
+                    exit = true;
+                default:
+                    System.out.println("Dies ist keine gültige Option, bitte nochmal versuchen");
+            }
 
         }
-
     }
 }
