@@ -14,9 +14,6 @@ import java.io.InputStreamReader;
 
 public class RegistrationManager {
 
-    public static void main(String args[]){
-        register();
-    }
 
     public static void register(){
         String Vorname = null;

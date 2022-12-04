@@ -10,8 +10,6 @@ import java.util.Scanner; // Import the Scanner class to read text files
 
 public class JsonLoader{
 
-    public static void main(String args[]){}
-
     public static Account FromJson(String JsonString) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         Account Acc = mapper.readValue(JsonString, Account.class);
