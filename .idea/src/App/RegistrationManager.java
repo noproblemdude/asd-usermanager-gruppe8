@@ -60,7 +60,7 @@ public class RegistrationManager {
     }
 
     public static void DeleteAccount(Account Acc){
-        File myObj = new File(".idea/src/App/Database/"+Acc.getBenutzername());
+        File myObj = new File(".idea/src/App/Database/"+Acc.getBenutzername()+".json");
         if (myObj.delete()) {
             System.out.println("konto wurde gelöscht");
         } else {
