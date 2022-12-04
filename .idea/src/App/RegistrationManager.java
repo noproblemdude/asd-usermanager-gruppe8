@@ -61,11 +61,17 @@ public class RegistrationManager {
 
     public static void DeleteAccount(Account Acc){
         File myObj = new File(".idea/src/App/Database/"+Acc.getBenutzername()+".json");
-        if (myObj.delete()) {
-            System.out.println("konto wurde gelöscht");
-        } else {
+        System.out.println("enter your password");
+        String passwordHashed = RegistrationManager.PasswordHasher(RegistrationManager.TerminalReader());
+        if (passwordHashed.equals(Acc.getPasswort())){
+            if (myObj.delete()) {
+                System.out.println("konto wurde gelöscht");}
+            else {
             System.out.println("Konto konnte nicht gelöscht werden");
-        }
+            }}
+        else{
+            System.out.println("password is not correct");
+            }
     }
 
     public static String PasswordHasher(String Password){
