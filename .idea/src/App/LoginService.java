@@ -1,6 +1,7 @@
 package App;
 
 import java.io.File;
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -16,38 +17,22 @@ public class LoginService {
         return f.exists() && !f.isDirectory();
     }
 
-    public static Account getAccountFromUsername(String username) {
+    public static boolean areLoginAndPasswordCorrect(String username, String password) {
         if (jsonExist(username)) {
             Account account = new Account();
             account = JsonLoader.ReadFromJson(username);
-            return account;
-        }
-        return null;
-    }
-
-    public static boolean areLoginAndPasswordCorrect(String username, String password) {
-        Account account = new Account();
-        account = getAccountFromUsername(username);
-        if (account.getPasswort().equals(RegistrationManager.PasswordHasher(password))) {
-                return true;
+            return account.getPasswort().equals(RegistrationManager.PasswordHasher(password));
         }
         return false;
     }
 
     public static boolean isUserLocked(String username) {
-        Account account = new Account();
-        account = getAccountFromUsername(username);
-        if (account.getIsLocked()) {
-                return true;
+        if (jsonExist(username)) {
+            Account account = new Account();
+            account = JsonLoader.ReadFromJson(username);
+            return account.getIsLocked();
         }
         return false;
-    }
-
-    public static String getCurrentDateTimeString() {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss");
-        LocalDateTime currentDateTime = LocalDateTime.now();
-        String currentDateTimeString = dtf.format(currentDateTime).toString();
-        return currentDateTimeString;
     }
 
     public static Account requestUserCredentials() {
@@ -58,17 +43,25 @@ public class LoginService {
         String userInputUsername = keyboard.next();
         System.out.println("Bitte gib einen Passwort ein:");
         String userInputPassword = keyboard.next();
-        if (areLoginAndPasswordCorrect(userInputUsername, userInputPassword)) {
+        if (isUserLocked(userInputUsername)) {
+            Account account = new Account();
+            account = JsonLoader.ReadFromJson(userInputUsername);
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss");
+            LocalDateTime currentDateTime = LocalDateTime.now();
+            LocalDateTime dateTimeTillUserWasLocked = LocalDateTime.parse(account.getDateTimeTillUserWasLocked(), dtf);
+            if (currentDateTime.isBefore(dateTimeTillUserWasLocked)) {
+                System.out.println("Dein Benutzer ist bis zum " + account.getDateTimeTillUserWasLocked() + " gesperrt.");
+            } else {
+                account.setIsLocked(false);
+                account.setNumberOfFailedLogins(0);
+                JsonLoader.SaveJson(account);
+                System.out.println("Dein Benutzer wurde entsperrt, bitte autorisiere dich erneut.");
+            }
+            return null;
+        } else if (areLoginAndPasswordCorrect(userInputUsername, userInputPassword)) {
             correctpassword = true;
             Account account = new Account();
             account = JsonLoader.ReadFromJson(userInputUsername);
-            if (account.getIsLocked()) {
-                System.out.println("Dein Benutzer ist bis zum " + account.getDateTimeTillUserWasLocked() + " gesperrt.");
-                // TODO: check the time and unlock user
-                account.setIsLocked(false);
-                JsonLoader.SaveJson(account);
-                return null;
-            }
             System.out.println("Du bist erfolgreich eingeloggt.");
             account.setNumberOfFailedLogins(0);
             JsonLoader.SaveJson(account);
