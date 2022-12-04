@@ -1,4 +1,4 @@
-package App.common;
+package App;
 
 import com.sun.tools.javac.Main;
 

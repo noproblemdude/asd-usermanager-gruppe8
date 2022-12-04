@@ -1,4 +1,4 @@
-package App.common;
+package App;
 
 public class PasswordChange {
     private String initiallyEnteredPass;
@@ -19,4 +19,6 @@ public class PasswordChange {
     public void setSecondlyEnteredPass(String secondlyEnteredPass) {
         this.secondlyEnteredPass = secondlyEnteredPass;
     }
+
+    public void changePassword(){}//
 }

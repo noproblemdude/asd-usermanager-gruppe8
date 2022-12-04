@@ -3,6 +3,8 @@ package App;
 import java.io.File;
 import java.util.Scanner;
 import App.*;
+import App.common.*;
+
 
 import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 
@@ -44,7 +46,7 @@ public class UserManager {
 
     public static boolean isPasswordCorrect(String username, String password) {
         Account account = new Account();
-        account = ReadFromJson(username);
+        account = JsonLoader.ReadFromJson(username);
         return account.getPasswort().equals(password);
     }
 
