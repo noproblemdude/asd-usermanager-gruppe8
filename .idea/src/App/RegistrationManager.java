@@ -62,9 +62,9 @@ public class RegistrationManager {
     public static void DeleteAccount(Account Acc){
         File myObj = new File(".idea/src/App/Database/"+Acc.getBenutzername());
         if (myObj.delete()) {
-            System.out.println("Account was deleted");
+            System.out.println("konto wurde gelöscht");
         } else {
-            System.out.println("Failed to delete the Account.");
+            System.out.println("Konto konnte nicht gelöscht werden");
         }
     }
 
