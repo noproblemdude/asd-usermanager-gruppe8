@@ -5,29 +5,29 @@ import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
 
 public class Account {
-    private String Vorname;
-    private String Nachname;
-    private String Benutzername;
-    private String Passwort;
+    private String firstname;
+    private String lastname;
+    private String username;
+    private String password;
     private int numberOfFailedLogins = 0;
     private String dateTimeWhenUserWasLocked;
     private String dateTimeTillUserWasLocked;
     private boolean isLocked = false;
 
-    public String getVorname(){
-        return Vorname;
+    public String getFirstname(){
+        return firstname;
     }
 
-    public String getNachname(){
-        return Nachname;
+    public String getLastname(){
+        return lastname;
     }
 
-    public String getBenutzername(){
-        return Benutzername;
+    public String getUsername(){
+        return username;
     }
 
-    public String getPasswort(){
-        return Passwort;
+    public String getPassword(){
+        return password;
     }
 
     public int getNumberOfFailedLogins() {
@@ -46,20 +46,20 @@ public class Account {
         return isLocked;
     }
 
-    public void setVorname(String vorname) {
-        Vorname = vorname;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
-    public void setNachname(String nachname) {
-        Nachname = nachname;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
-    public void setBenutzername(String benutzername) {
-        Benutzername = benutzername;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public void setPasswort(String passwort) {
-        Passwort = passwort;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public void setNumberOfFailedLogins(int numberOfFailedLogins) {

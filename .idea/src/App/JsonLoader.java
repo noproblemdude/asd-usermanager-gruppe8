@@ -34,11 +34,11 @@ public class JsonLoader{
         String JsonString = ToJson(Acc);
 
         try {
-            FileWriter myWriter = new FileWriter(".idea/src/App/Database/"+Acc.getBenutzername()+".json");
+            FileWriter myWriter = new FileWriter(".idea/src/App/Database/"+Acc.getUsername()+".json");
             myWriter.write(JsonString);
             myWriter.close();
         } catch (IOException e) {
-            System.out.println("An error occurred.");
+            System.out.println("Ein Fehler ist aufgetreten");
             e.printStackTrace();
         }
 
@@ -55,7 +55,7 @@ public class JsonLoader{
             }
             myReader.close();
         } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
+            System.out.println("Ein Fehler ist aufgetreten");
             e.printStackTrace();
         }
 

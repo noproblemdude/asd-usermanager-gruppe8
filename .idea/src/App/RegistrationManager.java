@@ -16,10 +16,10 @@ public class RegistrationManager {
 
 
     public static void register(){
-        String Vorname = null;
-        String Nachname = null;
-        String Benutzername = null;
-        String Passwort = null;
+        String firstname = null;
+        String lastname = null;
+        String username = null;
+        String password = null;
 
         //Creating a File object for directory
         File directoryPath = new File(".idea/src/App/Database/");
@@ -29,24 +29,24 @@ public class RegistrationManager {
         List<String> Accounts =Arrays.asList(contents);
 
         System.out.println("Bitte gib einen Benutzernamen ein");
-        Benutzername = TerminalReader();
+        password = TerminalReader();
 
-        if(Accounts.contains(Benutzername+".json")){
+        if(Accounts.contains(password+".json")){
             System.out.println("Benutzername ist schon vergeben");
         }
         else {
             Account Acc = new Account();
 
             System.out.println("Bitte gib deinen Vornamen ein");
-            Vorname = TerminalReader();
-            Acc.setVorname(Vorname);
+            firstname = TerminalReader();
+            Acc.setFirstname(firstname);
             System.out.println("Bitte gib deinen Nachnamen ein");
-            Nachname = TerminalReader();
-            Acc.setNachname(Nachname);
-            Acc.setBenutzername(Benutzername);
+            lastname = TerminalReader();
+            Acc.setLastname(lastname);
+            Acc.setUsername(password);
             System.out.println("Bitte gib einen Passwort ein");
-            Passwort = TerminalReader();
-            Acc.setPasswort(PasswordHasher(Passwort));
+            password = TerminalReader();
+            Acc.setPassword(PasswordHasher(password));
 
             JsonLoader.SaveJson(Acc);
 
@@ -57,17 +57,17 @@ public class RegistrationManager {
     }
 
     public static void DeleteAccount(Account Acc){
-        File myObj = new File(".idea/src/App/Database/"+Acc.getBenutzername()+".json");
+        File myObj = new File(".idea/src/App/Database/"+Acc.getUsername()+".json");
         System.out.println("enter your password");
         String passwordHashed = RegistrationManager.PasswordHasher(RegistrationManager.TerminalReader());
-        if (passwordHashed.equals(Acc.getPasswort())){
+        if (passwordHashed.equals(Acc.getPassword())){
             if (myObj.delete()) {
                 System.out.println("konto wurde gelöscht");}
             else {
             System.out.println("Konto konnte nicht gelöscht werden");
             }}
         else{
-            System.out.println("password is not correct");
+            System.out.println("Passwort ist nicht richtig");
             }
     }
 

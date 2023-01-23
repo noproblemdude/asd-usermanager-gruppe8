@@ -21,7 +21,7 @@ public class LoginService {
         if (jsonExist(username)) {
             Account account = new Account();
             account = JsonLoader.ReadFromJson(username);
-            return account.getPasswort().equals(RegistrationManager.PasswordHasher(password));
+            return account.getPassword().equals(RegistrationManager.PasswordHasher(password));
         }
         return false;
     }

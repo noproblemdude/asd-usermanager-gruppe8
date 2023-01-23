@@ -14,7 +14,7 @@ public class UserManager {
         boolean exit = false;
         boolean loggedin = false;
         String Choice = null;
-        Account UserAccount = null;
+        Account userAccount = null;
 
         while (exit == false) {
             System.out.println("Willkommen bei RegistrationManager!");
@@ -29,9 +29,9 @@ public class UserManager {
                     RegistrationManager.register();
                     break;
                 case "2":
-                    UserAccount = LoginService.requestUserCredentials();
+                    userAccount = LoginService.requestUserCredentials();
 
-                    if (UserAccount == null) {
+                    if (userAccount == null) {
                         loggedin = false;
                     } else {
                         loggedin = true;
@@ -56,11 +56,11 @@ public class UserManager {
                 switch(Choice) {
 
                     case "1":
-                        PasswordChange.changePassword(UserAccount);
+                        PasswordChange.changePassword(userAccount);
                         break;
 
                     case "2":
-                        RegistrationManager.DeleteAccount(UserAccount);
+                        RegistrationManager.DeleteAccount(userAccount);
                         loggedin = false;
                         break;
 
