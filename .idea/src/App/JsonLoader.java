@@ -10,12 +10,14 @@ import java.util.Scanner; // Import the Scanner class to read text files
 
 public class JsonLoader{
 
+    //Auxiliary Function to convert a json String to a java class(Account)
     public static Account FromJson(String JsonString) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         Account Acc = mapper.readValue(JsonString, Account.class);
         return Acc;
     }
 
+    //Auxiliary class to convert a Java class(account) into a json string
     public static String ToJson(Account Acc){
         //Creating the ObjectMapper object
         ObjectMapper mapper = new ObjectMapper();
@@ -29,6 +31,7 @@ public class JsonLoader{
         return jsonString;
     }
 
+    //takes an Account class, converts it to a Json string and saves it into a file in teh database directory
     public static void SaveJson(Account Acc){
 
         String JsonString = ToJson(Acc);
@@ -45,6 +48,7 @@ public class JsonLoader{
 
     }
 
+    //Reads the file from the database directory with the name "AccName" and turns the Json String in the file into a Java class (Account)
     public static Account ReadFromJson(String AccName) {
         String jsonString = null;
         try {

@@ -14,7 +14,8 @@ import java.io.InputStreamReader;
 
 public class RegistrationManager {
 
-
+    //This method takes input from the CLI and with that input generates an Account class, which is then converted into
+    // a JSON string and stored in a file in the Database Directory. thus completing the registering process
     public static void register(){
         String firstname = null;
         String lastname = null;
@@ -31,7 +32,7 @@ public class RegistrationManager {
         System.out.println("Bitte gib einen Benutzernamen ein");
         password = TerminalReader();
 
-        if(Accounts.contains(password+".json")){
+        if(Accounts.contains(username+".json")){
             System.out.println("Benutzername ist schon vergeben");
         }
         else {
@@ -56,6 +57,7 @@ public class RegistrationManager {
 
     }
 
+    //Deletes an account by deleting the json file in the database
     public static void DeleteAccount(Account Acc){
         File myObj = new File(".idea/src/App/Database/"+Acc.getUsername()+".json");
         System.out.println("enter your password");
@@ -71,6 +73,7 @@ public class RegistrationManager {
             }
     }
 
+    //Auxiliary function to encrypt password Strings
     public static String PasswordHasher(String Password){
         StringBuilder sb = null;
 
@@ -94,7 +97,7 @@ public class RegistrationManager {
         return sb.toString();
     }
 
-
+    //Auxiliary Function to read input from the CLI
     public static String TerminalReader() {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String Input;
