@@ -8,8 +8,8 @@ public class JsonLoaderTest {
 
     @Test
     void testSaveJson() {
-        acc =
-        assertEquals(expected,hashedPass);
+        // acc =
+        // assertEquals(expected,hashedPass);
     }
     void testReadFromJson() {
         String enteredPassword = "1234";
@@ -24,7 +24,7 @@ public class JsonLoaderTest {
         String expected = "81dc9bdb52d04dc20036dbd8313ed055";
         assertEquals(expected,hashedPass);
     }
-
+/*
     void testToJson() {
         Account acc = new Account();
         acc.setBenutzername();
@@ -32,5 +32,5 @@ public class JsonLoaderTest {
         acc.setNachname();
         acc.setPasswort();
     }
-
+*/
 }
