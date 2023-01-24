@@ -30,7 +30,7 @@ public class JsonLoaderTest {
         acc.setBenutzername();
         acc.setVorname();
         acc.setNachname();
-        acc.setPasswort()
+        acc.setPasswort();
     }
 
 }

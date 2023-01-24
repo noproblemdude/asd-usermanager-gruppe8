@@ -36,7 +36,8 @@ public class PasswordChange {
                 account.setPassword(RegistrationManager.PasswordHasher(pass2));
                 JsonLoader.SaveJson(account);
                 System.out.println("Password has been changed succesfully");
-        }}
+            }
+        }
 
     }
 }
