@@ -1,6 +1,6 @@
-package src.main.resources;
+package src.main.java;
 
-import src.main.resources.Service.*;
+import src.main.java.Service.*;
 
 public class UserManager {
 

@@ -1,4 +1,4 @@
-package src.main.resources.Service;
+package src.main.java.Service;
 
 public class Account {
     private String firstname;

@@ -1,6 +1,6 @@
-package src.test.resources;
+package src.test.java;
 
-import src.main.resources.Service.*;
+import src.main.java.Service.*;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

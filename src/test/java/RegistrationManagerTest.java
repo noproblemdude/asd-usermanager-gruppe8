@@ -1,7 +1,7 @@
-package src.test.resources;
+package src.test.java;
 
 import org.junit.jupiter.api.Test;
-import src.main.resources.Service.RegistrationManager;
+import src.main.java.Service.RegistrationManager;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
