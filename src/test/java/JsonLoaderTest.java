@@ -8,13 +8,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class JsonLoaderTest {
 
     @Test
-    void testSaveJson() {
+    public void testSaveJson() {
         // acc =
         // assertEquals(expected,hashedPass);
     }
 
     @Test
-    void testReadFromJson() {
+    public void testReadFromJson() {
         String enteredPassword = "1234";
         String hashedPass = RegistrationManager.PasswordHasher(enteredPassword);
         String expected = "81dc9bdb52d04dc20036dbd8313ed055";
@@ -23,7 +23,7 @@ public class JsonLoaderTest {
     }
 
     @Test
-    void testFromJson() {
+    public void testFromJson() {
         String enteredPassword = "1234";
         String hashedPass = RegistrationManager.PasswordHasher(enteredPassword);
         String expected = "81dc9bdb52d04dc20036dbd8313ed055";
