@@ -1,7 +1,7 @@
-package App.Tests;
+package src.test.resources;
 
-import App.*;
-import App.Service.*;
+import src.main.resources.*;
+import src.main.resources.Service.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

@@ -1,4 +1,4 @@
-package App;
+package src.main.resources;
 
 import com.sun.tools.javac.Main;
 import java.time.format.DateTimeFormatter;

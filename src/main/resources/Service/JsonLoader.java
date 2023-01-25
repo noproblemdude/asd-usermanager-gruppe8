@@ -1,6 +1,6 @@
-package App.Service;
+package src.main.resources.Service;
 
-import App.*;
+import src.main.resources.Account;
 import java.io.*;
 import java.util.*;
 import com.fasterxml.jackson.core.*;
@@ -35,7 +35,7 @@ public class JsonLoader{
         String JsonString = ToJson(Acc);
 
         try {
-            FileWriter myWriter = new FileWriter(".idea/src/App/Database/"+Acc.getUsername()+".json");
+            FileWriter myWriter = new FileWriter("src/main/resources/Database/"+Acc.getUsername()+".json");
             myWriter.write(JsonString);
             myWriter.close();
         } catch (IOException e) {
@@ -49,7 +49,7 @@ public class JsonLoader{
     public static Account ReadFromJson(String AccName) {
         String jsonString = null;
         try {
-            File myObj = new File(".idea/src/App/Database/"+AccName+".json");
+            File myObj = new File("src/main/resources/Database/"+AccName+".json");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 jsonString = myReader.nextLine();
