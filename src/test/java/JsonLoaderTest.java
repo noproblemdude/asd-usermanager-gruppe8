@@ -1,7 +1,7 @@
 package src.test.java;
 
-import org.junit.jupiter.api.Test;
-import src.main.java.Service.RegistrationManager;
+import src.main.java.Service.*;
+import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -18,6 +18,7 @@ public class JsonLoaderTest {
         String enteredPassword = "1234";
         String hashedPass = RegistrationManager.PasswordHasher(enteredPassword);
         String expected = "81dc9bdb52d04dc20036dbd8313ed055";
+
         assertEquals(expected,hashedPass);
     }
 
@@ -26,6 +27,7 @@ public class JsonLoaderTest {
         String enteredPassword = "1234";
         String hashedPass = RegistrationManager.PasswordHasher(enteredPassword);
         String expected = "81dc9bdb52d04dc20036dbd8313ed055";
+
         assertEquals(expected,hashedPass);
     }
 /*
