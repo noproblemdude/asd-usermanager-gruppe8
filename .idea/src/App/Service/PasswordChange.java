@@ -1,4 +1,5 @@
-package App;
+package App.Service;
+import App.*;
 
 public class PasswordChange {
     private String initiallyEnteredPass;

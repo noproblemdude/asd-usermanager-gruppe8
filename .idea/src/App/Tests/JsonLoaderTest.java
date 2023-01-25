@@ -1,5 +1,6 @@
-package App;
+package App.Tests;
 
+import App.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -11,6 +12,8 @@ public class JsonLoaderTest {
         // acc =
         // assertEquals(expected,hashedPass);
     }
+
+    @Test
     void testReadFromJson() {
         String enteredPassword = "1234";
         String hashedPass = RegistrationManager.PasswordHasher(enteredPassword);
@@ -18,6 +21,7 @@ public class JsonLoaderTest {
         assertEquals(expected,hashedPass);
     }
 
+    @Test
     void testFromJson() {
         String enteredPassword = "1234";
         String hashedPass = RegistrationManager.PasswordHasher(enteredPassword);
