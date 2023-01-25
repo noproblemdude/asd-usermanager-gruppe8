@@ -1,7 +1,5 @@
 package src.main.resources.Service;
 
-import src.main.resources.Account;
-
 import java.io.File;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;

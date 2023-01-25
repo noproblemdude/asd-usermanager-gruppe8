@@ -1,5 +1,4 @@
 package src.main.resources.Service;
-import src.main.resources.*;
 
 public class PasswordChange {
     private String initiallyEnteredPass;

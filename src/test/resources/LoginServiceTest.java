@@ -1,6 +1,5 @@
 package src.test.resources;
 
-import src.main.resources.*;
 import src.main.resources.Service.*;
 import org.junit.Test;
 import static org.junit.Assert.*;

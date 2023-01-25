@@ -3,15 +3,13 @@ package src.main.resources.Service;
 import java.io.File;
 import java.util.*;
 
-import src.main.resources.*;
-//import java.util.concurrent.TimeUnit;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
 
 public class LoginService {
 
     public static boolean jsonExist(String username) {
-        File f = new File(".idea/src/App/Database/"+username+".json");
+        File f = new File("src/main/resources/Database/"+username+".json");
         return f.exists() && !f.isDirectory();
     }
 
