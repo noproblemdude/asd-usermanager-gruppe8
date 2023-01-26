@@ -2,6 +2,7 @@ package App;
 
 import java.io.File;
 import java.util.Scanner;
+import App.Service.*;
 import App.*;
 
 
@@ -9,7 +10,7 @@ import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 
 public class UserManager {
 
-    public static void main(String args[]){
+    public static void main(String[] args){
 
         boolean exit = false;
         boolean loggedin = false;
@@ -18,7 +19,7 @@ public class UserManager {
 
         while (exit == false) {
             System.out.println("Willkommen bei RegistrationManager!");
-            System.out.println("Wählen sie eine der folgenden Optionen aus: 1:Registrieren,2:Einloggen,3:Schliessen");
+            System.out.println("Wählen sie eine der folgenden Optionen aus:\n1: Registrieren\n2: Einloggen\n3: Schliessen");
             Choice = RegistrationManager.TerminalReader();
 
 
@@ -49,8 +50,8 @@ public class UserManager {
 
 
             while(loggedin){
-                System.out.println("Sie wurden eingeloggt");
-                System.out.println("Wählen sie eine der folgenden Optionen aus: 1:Passwort aendern,2:Konto löschen,3:Ausloggen");
+                // System.out.println("Sie wurden eingeloggt");
+                System.out.println("Wählen sie eine der folgenden Optionen aus:\n1: Passwort aendern\n2: Konto löschen\n3: Ausloggen");
                 Choice = RegistrationManager.TerminalReader();
 
                 switch(Choice) {

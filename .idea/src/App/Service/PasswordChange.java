@@ -1,4 +1,5 @@
-package App;
+package App.Service;
+import App.*;
 
 public class PasswordChange {
     private String initiallyEnteredPass;
@@ -25,18 +26,19 @@ public class PasswordChange {
     }
 
     public static void changePassword(Account account){
-        System.out.println("Please enter your old password");
+        System.out.println("Bitte geben Sie Ihr altes Passwort ein");
         String oldpasswordHashed = RegistrationManager.PasswordHasher(RegistrationManager.TerminalReader());
         if (oldpasswordHashed.equals(account.getPassword())){
-            System.out.println("Please enter your new password");
+            System.out.println("Bitte geben Sie Ihr neues Passwort ein");
             String pass1 = RegistrationManager.TerminalReader();
-            System.out.println("Please re-enter your new password");
+            System.out.println("Bitte geben Sie Ihr neues Passwort erneut ein");
             String pass2 = RegistrationManager.TerminalReader();
             if (confirmEnteredPasswordsSame(pass1,pass2)){
                 account.setPassword(RegistrationManager.PasswordHasher(pass2));
                 JsonLoader.SaveJson(account);
-                System.out.println("Password has been changed succesfully");
-        }}
+                System.out.println("Passwort wurde erfolgreich geändert");
+            }
+        }
 
     }
 }
