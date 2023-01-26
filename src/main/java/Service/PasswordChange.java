@@ -1,5 +1,4 @@
-package App.Service;
-import App.*;
+package src.main.java.Service;
 
 public class PasswordChange {
     private String initiallyEnteredPass;

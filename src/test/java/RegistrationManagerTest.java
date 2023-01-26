@@ -1,14 +1,14 @@
-package App.Tests;
+package src.test.java;
 
-import App.*;
-import org.junit.jupiter.api.Test;
+import src.main.java.Service.*;
+import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class RegistrationManagerTest {
+public class RegistrationManagerTest {
 
     @Test
-    void passwordHasher() {
+    public void passwordHasher() {
         String enteredPassword = "1234";
         String hashedPass = RegistrationManager.PasswordHasher(enteredPassword);
         String expected = "81dc9bdb52d04dc20036dbd8313ed055";

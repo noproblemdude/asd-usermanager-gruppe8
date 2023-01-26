@@ -1,15 +1,12 @@
-package App;
+package src.main.java.Service;
 
-import App.Service.*;
 import java.io.File;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.security.MessageDigest;
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 
 
@@ -23,7 +20,7 @@ public class RegistrationManager {
         String password = null;
 
         //Creating a File object for directory
-        File directoryPath = new File(".idea/src/App/Database/");
+        File directoryPath = new File("src/main/resources/Database/");
         //List of all files and directories
         String contents[] = directoryPath.list();
 
@@ -58,7 +55,7 @@ public class RegistrationManager {
     }
 
     public static void DeleteAccount(Account Acc){
-        File myObj = new File(".idea/src/App/Database/"+Acc.getUsername()+".json");
+        File myObj = new File("src/main/resources/Database/"+Acc.getUsername()+".json");
         System.out.println("enter your password");
         String passwordHashed = RegistrationManager.PasswordHasher(RegistrationManager.TerminalReader());
         if (passwordHashed.equals(Acc.getPassword())){

@@ -1,12 +1,6 @@
-package App;
+package src.main.java;
 
-import java.io.File;
-import java.util.Scanner;
-import App.Service.*;
-import App.*;
-
-
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
+import src.main.java.Service.*;
 
 public class UserManager {
 

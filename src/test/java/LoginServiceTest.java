@@ -1,7 +1,6 @@
-package App.Tests;
+package src.test.java;
 
-import App.*;
-import App.Service.*;
+import src.main.java.Service.*;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
