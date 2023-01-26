@@ -54,22 +54,23 @@ public class RegistrationManager {
 
     }
 
-    public static void DeleteAccount(Account Acc){
+    public static void DeleteAccount(Account Acc) {
         File myObj = new File("src/main/resources/Database/"+Acc.getUsername()+".json");
         System.out.println("enter your password");
         String passwordHashed = RegistrationManager.PasswordHasher(RegistrationManager.TerminalReader());
-        if (passwordHashed.equals(Acc.getPassword())){
+        if (passwordHashed.equals(Acc.getPassword())) {
             if (myObj.delete()) {
                 System.out.println("konto wurde gelöscht");}
             else {
             System.out.println("Konto konnte nicht gelöscht werden");
-            }}
-        else{
-            System.out.println("Passwort ist nicht richtig");
             }
+        }
+        else {
+            System.out.println("Passwort ist nicht richtig");
+        }
     }
 
-    public static String PasswordHasher(String Password){
+    public static String PasswordHasher(String Password) {
         StringBuilder sb = null;
 
         try {

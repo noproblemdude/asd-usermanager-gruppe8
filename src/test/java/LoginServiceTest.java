@@ -16,13 +16,14 @@ public class LoginServiceTest {
 
     @Test
     public void testAreLoginAndPasswordCorrect_whenCorrectCredentials_returnsTrue() {
+        JsonLoader jsonloader = new JsonLoader();
         // Arrange
         String username = "testuser";
         String password = "testpassword";
         Account account = new Account();
         account.setUsername(username);
         account.setPassword(RegistrationManager.PasswordHasher(password));
-        JsonLoader.SaveJson(account);
+        jsonloader.SaveJson(account);
 
         // Act
         boolean result = LoginService.areLoginAndPasswordCorrect(username, password);

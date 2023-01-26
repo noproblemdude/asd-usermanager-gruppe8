@@ -1,14 +1,15 @@
 package src.main.java.Service;
 
-import java.io.*;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
-import com.fasterxml.jackson.core.*;
-import com.fasterxml.jackson.databind.*;
-import java.io.File;  // Import the File class
-import java.io.FileNotFoundException;  // Import this class to handle errors
-import java.util.Scanner; // Import the Scanner class to read text files
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
 
-public class JsonLoader{
+public class JsonLoader {
 
     public static Account FromJson(String JsonString) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
