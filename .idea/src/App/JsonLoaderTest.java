@@ -1,5 +1,6 @@
 package App;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -55,7 +56,12 @@ public class JsonLoaderTest {
 
     boolean AuxTestFromJson(String jsonString,String username,String firstname,String lastname, String password){
         Account acc = new Account();
-        Account acc2 = JsonLoader.FromJson(jsonString);
+        Account acc2 = null;
+        try {
+            acc2 = JsonLoader.FromJson(jsonString);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
         acc.setUsername(username);
         acc.setFirstname(firstname);
         acc.setLastname(lastname);

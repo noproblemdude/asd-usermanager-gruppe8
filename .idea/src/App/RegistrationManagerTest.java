@@ -22,7 +22,7 @@ class RegistrationManagerTest {
 
         JsonLoader.SaveJson(acc);
 
-        RegistrationManager.DeleteAccount(username);
+        RegistrationManager.DeleteAccount(acc);
 
         System.setIn(sysInBackup);
 
@@ -50,9 +50,9 @@ class RegistrationManagerTest {
 
     void testPasswordHasher() {
 
-        assertEquals("69cfe5c6868bee77e441981d6e015fca",RegistrationManager("68945642"));
-        assertEquals("e64dbaf67dbceb08c17425587133f2eb",RegistrationManager("alahsder"));
-        assertEquals("383c9f5f9ecef488877844c2d7053709",RegistrationManager("$(§)&$§$"));
+        assertEquals("69cfe5c6868bee77e441981d6e015fca",RegistrationManager.PasswordHasher("68945642"));
+        assertEquals("e64dbaf67dbceb08c17425587133f2eb",RegistrationManager.PasswordHasher("alahsder"));
+        assertEquals("383c9f5f9ecef488877844c2d7053709",RegistrationManager.PasswordHasher("$(§)&$§$"));
 
     }
 
@@ -73,7 +73,7 @@ class RegistrationManagerTest {
 
         assertEquals(true,AUXTestTerminalReader("hallo"));
         assertEquals(true,AUXTestTerminalReader("dskjalfd"));
-        assertEquals(true,AUXTestTerminalReader("($&%$)$)=/)");
+        assertEquals(true,AUXTestTerminalReader("($&%$)$)=/)"));
 
 
     }
