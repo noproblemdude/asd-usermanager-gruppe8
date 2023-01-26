@@ -1,6 +1,7 @@
 package App.Tests;
 
 import App.*;
+import App.Service.*;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;

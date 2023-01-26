@@ -1,6 +1,7 @@
-package App;
+package App.Service;
 
 import App.Service.*;
+import App.*;
 import java.io.File;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
