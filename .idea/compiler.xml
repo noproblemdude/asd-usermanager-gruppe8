@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="asd-usermanager-gruppe8" target="18" />
+      <module name="asd-usermanager-gruppe8" target="19" />
     </bytecodeTargetLevel>
   </component>
 </project>

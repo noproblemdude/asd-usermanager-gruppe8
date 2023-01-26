@@ -39,7 +39,7 @@ public class LoginService {
         }
     }
 
-    private static void handleLockedAccount(Account account) {
+    public static void handleLockedAccount(Account account) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss");
         LocalDateTime currentDateTime = LocalDateTime.now();
         LocalDateTime dateTimeTillUserWasLocked = LocalDateTime.parse(account.getDateTimeTillUserWasLocked(), dtf);
@@ -53,13 +53,13 @@ public class LoginService {
         }
     }
 
-    private static void handleCorrectCredentials(Account account) {
+    public static void handleCorrectCredentials(Account account) {
         System.out.println("Du bist erfolgreich eingeloggt.");
         account.setNumberOfFailedLogins(0);
         JsonLoader.SaveJson(account);
     }
 
-    private static void handleIncorrectCredentials(String userInputUsername) {
+    public static void handleIncorrectCredentials(String userInputUsername) {
         System.out.println("Benutzername oder Passwort ist falsch.");
         if (jsonExist(userInputUsername)) {
             Account account = JsonLoader.ReadFromJson(userInputUsername);
